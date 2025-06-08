@@ -1,6 +1,3 @@
-/* css/style.css */
-
-/* --- 基本樣式重置 --- */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +8,8 @@ body {
     font-family: "Noto Sans TC", Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color:#D2E9FF;
+    background-color: #D2E9FF;
+    padding-top: 80px; 
 }
 
 a {
@@ -25,13 +23,12 @@ a:hover {
 
 ul {
     list-style: none;
-    margin: 30px;
 }
 
 img {
     max-width: 100%;
     height: auto;
-    display: block; /* 移除圖片底部多餘空間 */
+    display: block;
 }
 
 /* --- 按鈕通用樣式 --- */
@@ -42,12 +39,15 @@ img {
     padding: 10px 20px;
     border-radius: 5px;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    color:#FFFF00;
-    text-decoration:none;
+    background-color: #5252a1;
+    color: #FFFF00;/
+    text-decoration: none;
 }
 
 .btn-small {
@@ -57,17 +57,18 @@ img {
 
 /* --- 導覽列樣式 --- */
 .navbar {
-    position:fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color:#333333;
-    color: #CCFFFF;
-    height: 80px;
-    width: 100%;
+    color:#CCFFFF;
+    height:60px;
+    width:100%;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* 響應式調整 */
-    flex-direction: column;
+    z-index: 1000;
 }
 
 .navbar .logo a {
@@ -79,7 +80,7 @@ img {
 
 .nav-links {
     display: flex;
-    margin: 0; /* 移除預設的列表外邊距 */
+    margin: 0;
 }
 
 .nav-links li {
@@ -94,20 +95,38 @@ img {
 }
 
 .nav-links a:hover {
-    color:#CC6666;
-    text-decoration:underline;
+    color: #CC6666;
+    text-decoration: underline;
 }
-
 
 /* --- 主視覺/英雄區塊樣式 --- */
 .hero-section {
-    background-color: #D2E9FF;
+    background-image:url("../images/1.jpg");
+    /* 新增或修改以下屬性來控制圖片顯示 */
+    background-size: cover;       /* 最重要！讓圖片覆蓋整個區塊，可能會裁切但不會有空白 */
+    background-position: center;  /* 讓圖片中心對齊區塊中心 */
+    background-repeat: no-repeat; /* 防止圖片重複平鋪 */
+    
+    /* 保持你原有的樣式 */
     text-align: center;
-    padding: 80px 20px;
+    padding: 80px 20px; /* 這裡的 padding 仍然是內容的內邊距，而不是背景圖片的 */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60vh; /* 確保至少佔據視窗高度的一部分 */
+    min-height: calc(100vh - 80px);
+    /* padding-top: 0; 如果 body 已經有 padding-top，這裡可能不需要額外調整 */
+}
+
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,208, 0.5); /* 半透明黑色疊層 */
+    z-index: -1; /* 讓疊層在內容之下 */
 }
 
 .hero-content {
@@ -120,7 +139,7 @@ img {
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 20px;
-    border: 5px solid #fff; /* 添加邊框 */
+    border: 5px solid #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -148,10 +167,10 @@ img {
 .contact-section {
     padding: 60px 20px;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 30px auto; /* 上下留白 30px，左右自動置中 */
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px; /* 區塊之間留白 */
+    /* margin-bottom: 30px; 調整為 margin: 30px auto; 讓區塊上下都有間距 */
     border-radius: 8px;
 }
 
@@ -174,7 +193,7 @@ h2 {
 }
 
 .about-content ul {
-    list-style: disc; /* 列表符號 */
+    list-style: disc;
     padding-left: 20px;
 }
 
@@ -222,13 +241,17 @@ h2 {
 .project-card .btn-small {
     margin: 0 15px 15px;
 }
+.project-card .btn-small:hover { 
+    color: #CC6666;
+    text-decoration: none;
+}
 
 /* --- 聯絡方式區塊樣式 --- */
 .contact-form {
     max-width: 600px;
     margin: 0 auto 30px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color:#FAF4FF;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
@@ -260,8 +283,7 @@ h2 {
 
 .contact-form .btn {
     width: 100%;
-    border: none;
-    cursor: pointer;
+    /* border: none; 和 cursor: pointer; 已移到 .btn 通用樣式中 */
 }
 
 .contact-info {
@@ -272,9 +294,12 @@ h2 {
 .contact-info p {
     margin-bottom: 10px;
 }
+.contact-info a { /* 聯絡資訊連結的預設顏色 */
+    color: #666; /* 或你設定的連結預設色 */
+}
 .contact-info a:hover {
-    color:#CC6666;
-    text-decoration:underline;
+    color: #CC6666; /* 聯絡資訊連結 Hover 時顏色變紅 */
+    text-decoration: underline;
 }
 
 /* --- 頁腳樣式 --- */
@@ -302,31 +327,36 @@ footer {
 }
 
 .social-links a:hover {
-    color: #007bff;
+    color: #CC6666; /* 社群連結 Hover 時顏色變紅 */
 }
 
 /* --- 響應式設計 (RWD) --- */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; /* 小螢幕時導覽列垂直堆疊 */
+        height: auto; /* 高度自適應內容 */
+        align-items: flex-start; /* 項目左對齊 */
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: column; /* 導覽連結垂直堆疊 */
         width: 100%;
         margin-top: 15px;
+        align-items: flex-start; /* 導覽連結左對齊 */
     }
 
     .nav-links li {
         margin: 0 0 10px 0;
     }
 
-    .language-selector {
+    /* language-selector 已移除，所以不需要這裡的樣式 */
+    /* .language-selector {
         width: 100%;
         text-align: center;
         margin-top: 10px;
-    }
+    } */
 
     .hero-section h1 {
         font-size: 2.5em;
