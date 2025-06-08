@@ -1,11 +1,106 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>welcome</title>
-</head>
+<html lang="zh-TW"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邱㐆屴 - 我的專業作品集</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    </head>
 <body>
 
-<p><a href="https://www.youtube.com/"target="_self">open page 1 in the same window</a></p>
-<p><a href="https://www.youtube.com/watch?v=desR8c1Viec"target="_self">open page 2 in the same window</a></p>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">邱㐆屴</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#portfolio">作品集</a></li> <li><a href="#contact">聯絡我</a></li>   </ul>
+            </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <img src="images/profile.jpg"  class="profile-pic">
+                <h1>邱㐆屴</h1>
+                <h2>網頁開發者 | 平面設計師</h2>
+                <p>打造美觀且實用的網頁體驗。</p>
+                <a href="#contact" class="btn">立即聯絡</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>關於我</h2>
+            <div class="about-content">
+                <p>哈囉！我是邱㐆屴，一位充滿熱情的網頁開發者，擁有 5 年以上響應式且使用者友善的網站建置經驗。我專精於使用 HTML、CSS 和 JavaScript 進行前端開發，也對後端技術有良好的理解。我熱愛創造視覺吸引人的設計，並用簡潔的程式碼解決複雜的問題。</p>
+                <p>在不寫程式的時候，我喜歡探索新的設計趨勢或閱讀好書。</p>
+                <h3>技能</h3>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>響應式設計</li>
+                    <li>UI/UX 原則</li>
+                    <li>平面設計 (Photoshop, Illustrator)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <h2>我的作品集</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <img src="images/107.jpg" alt="專案 1 縮圖">
+                    <h3>電商網站重新設計</h3>
+                    <p>改造現有的線上商店，以提供更好的使用者體驗和轉換率。</p>
+                    <a href="#" class="btn-small">查看專案</a>
+                </div>
+                <div class="project-card">
+                    <img src="images/125.jpg" alt="專案 2 縮圖">
+                    <h3>行動應用程式 UI/UX</h3>
+                    <p>為一個新的生產力行動應用程式設計了直觀的使用者介面。</p>
+                    <a href="#" class="btn-small">查看專案</a>
+                </div>
+                </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>聯絡我</h2>
+            <p>有專案想法或只是想打個招呼嗎？歡迎隨時與我聯繫！</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email：</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">訊息：</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">送出訊息</button>
+            </form>
+            <div class="contact-info">
+                <p>Email: <a href="fightuuuck@gmail.com">fightuuuck@gmail.com</a></p>
+                <p>電話: +886 3342 9786</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 邱㐆屴版權所有。</p>
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="https://github.com/gin-moon/gin-moon.github.io" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Behance</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>
